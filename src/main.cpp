@@ -1,3 +1,6 @@
+
+//Main file for the project. Testing etc.
+
 #include <iostream>
 #include "core/Circuit.hpp"
 

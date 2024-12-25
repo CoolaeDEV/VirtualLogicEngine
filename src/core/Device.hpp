@@ -1,3 +1,7 @@
+
+// Declaration of the Device class and its member functions
+// The Device class is used to create the gates, pins, wires etc. that are used in a circuit/chip
+
 #include <vector>
 #include <bitset>
 #include <cstdint>

@@ -1,3 +1,6 @@
+
+// Declaration of the Circuit class
+// The Circuit class holds gates, wires, pins, and other circuits, to be evaluated.
 #include <vector>
 
 #include "Device.hpp"
