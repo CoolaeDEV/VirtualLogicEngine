@@ -10,4 +10,4 @@ if (POLICY CMP0141)
 endif()
 
 project ("VirtualLogicEngine")
-add_executable(VirtualLogicEngine src/main.cpp "src/core/Device.cpp" "src/core/Circuit.cpp" "src/core/Simulation.cpp")
+add_executable(VirtualLogicEngine src/main.cpp   "src/core/Simulation.cpp" "src/core/CircuitComponent.cpp")
