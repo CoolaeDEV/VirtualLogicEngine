@@ -16,9 +16,11 @@ public:
 
 class Wire {
 public:
+
+
     DynamicBitset data;
-    std::vector<std::variant<Circuit, Gate>>* source = new std::vector<std::variant<Circuit, Gate>>();
-    std::vector<std::variant<Circuit, Gate>>* destination = new std::vector<std::variant<Circuit, Gate>>();
+    std::vector<std::variant<Circuit*, Gate*>>* source = new std::vector<std::variant<Circuit*, Gate*>>();
+    std::vector<std::variant<Circuit*, Gate*>>* destination = new std::vector<std::variant<Circuit*, Gate*>>();
 
     int level = 0;
 
@@ -56,7 +58,7 @@ public:
     void setInput(size_t index, const DynamicBitset& input);
 
     bool operator==(const Gate& other) const {
-		return inputs == other.inputs && outputs == other.outputs && inputWires == other.inputWires && outputWires == other.outputWires && level == other.level && Type == other.Type;
+		return this == &other;
     }
     ~Gate() = default;
 };
@@ -76,17 +78,18 @@ public:
     std::vector<DynamicBitset> outputs;
 
     int level = 0;
+	bool isInSubCircuit = false;
 
     void process();
 
     void addGate(Gate gate);
     void addWire(Wire wire);
     void addSubCircuit(Circuit* circuit);
-    void connectWire(Wire* wire, std::variant<Circuit, Gate> source, std::variant<Circuit, Gate> destination);
+    void connectWire(Wire* wire, std::variant<Circuit*, Gate*> source, std::variant<Circuit*, Gate*> destination);
     void levelize();
 
-    bool operator==(const Circuit& other) const {
-		return subCircuits == other.subCircuits && wires == other.wires && gates == other.gates && inputs == other.inputs && outputs == other.outputs && level == other.level;
+    bool operator==(Circuit* other) const {
+        return  this == other;
     }
     ~Circuit() = default;
 

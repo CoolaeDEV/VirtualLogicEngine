@@ -15,7 +15,7 @@ int main(){
 	
 	circuit.addWire(wire);
 	
-	circuit.connectWire(&wire, circuit, gate);
+	circuit.connectWire(&wire, std::variant<Circuit*, Gate*>{&circuit}, std::variant<Circuit*, Gate*>{&gate});
 	
 	circuit.levelize();
 	
