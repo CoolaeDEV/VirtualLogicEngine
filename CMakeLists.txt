@@ -3,6 +3,9 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 # Enable Hot Reload for MSVC compilers if supported.
 if (POLICY CMP0141)
   cmake_policy(SET CMP0141 NEW)
@@ -10,4 +13,4 @@ if (POLICY CMP0141)
 endif()
 
 project ("VirtualLogicEngine")
-add_executable(VirtualLogicEngine src/main.cpp   "src/core/Simulation.cpp" "src/core/CircuitComponent.cpp")
+add_executable(VirtualLogicEngine src/main.cpp   "src/core/Simulation.cpp" "src/core/CircuitComponent.cpp" )

@@ -12,28 +12,14 @@ void Simulation::simulateRealtime() {
 	}
 }
 
-void Simulation::buildCompiledLUT() {
-	for (Circuit* circuit : circuits) {
-		circuit->buildLUT();
-	}
-}
-
-void Simulation::evaluteCompiledLUT() {
-	for (Circuit* circuit : circuits) {
-		DynamicBitset sampleInput(4);
-		sampleInput.set(0, { 0b1 });
-		sampleInput.set(1, { 0b0 });
-
-		DynamicBitset result = circuit->evaluateLUT(sampleInput);
-		std::cout << "Compiled LUT Result: " << result << "\n";
-	}
-}
-
 void Simulation::tick() {
 	if (mode == SimulationMode::Realtime) {
 		simulateRealtime();
 	}
-	else {
-		evaluteCompiledLUT();
+}
+
+void Simulation::levelize() {
+	for (Circuit* c : circuits) {
+		c->levelize();
 	}
 }

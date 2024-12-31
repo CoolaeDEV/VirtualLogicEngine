@@ -4,6 +4,10 @@
 #include "Simulation.hpp"
 #include "../other/DynamicBitset.hpp"
 
+class Event;
+class Gate;
+class Circuit;
+
 class CircuitComponent {
 public:
 	virtual void process() = 0;
@@ -13,13 +17,14 @@ public:
 class Wire {
 public:
 	DynamicBitset data;
-	CircuitComponent* source = nullptr;
-	CircuitComponent* destination = nullptr;
-	int destinationInputIndex = 0;
+	std::vector<std::variant<Circuit, Gate>>* source = nullptr;
+	std::variant<Circuit, Gate>* destination = nullptr;
+
+	int level = 0;
 
 	Wire(size_t wireSize) : data(wireSize) {}
 
-	void process();
+	void process(size_t circuitOutputIndex);
 };
 
 class Gate : public CircuitComponent {
@@ -29,6 +34,8 @@ public:
 
 	std::vector<Wire> inputWires;
 	std::vector<Wire> outputWires;
+
+	int level = 0;
 
 	enum types {
 		BUFFER,
@@ -46,27 +53,35 @@ public:
 	Gate(size_t outputSize, types gateType);
 
 	void process();
-	void addInput(size_t inputSize);
 	void setInput(size_t index, const DynamicBitset& input);
-	void connectInput(Wire& wire, size_t inputIndex);
-	void connectOutput(Wire& wire);
 };
 
 class Circuit : public CircuitComponent {
 public:
-	Circuit(size_t inputSize, size_t outputSize) : inputSize(inputSize), outputSize(outputSize) {}
+	Circuit(size_t inputSize, size_t outputSize) {
+		inputs.resize(inputSize);
+		outputs.resize(outputSize);
+	}
+
+	std::vector<Circuit*> subCircuits;
+	std::vector<Wire> wires;
+	std::vector<Gate> gates;
+
+	std::vector<DynamicBitset> inputs;
+	std::vector<DynamicBitset> outputs;
+
+	int level = 0;
+
 	void process();
-	void buildLUT();
-	DynamicBitset evaluateLUT(const DynamicBitset& input);
-	void addComponent(CircuitComponent* component);
+
+	void addGate(Gate gate);
 	void addWire(Wire wire);
+	void addSubCircuit(Circuit* circuit);
+	void connectWire(Wire* wire, std::variant<Circuit, Gate>* source, std::variant<Circuit, Gate>* destination);
+	void levelize();
 
 private:
-	std::vector<CircuitComponent*> components;
-	std::vector<Wire> wires;
 	std::unordered_map<DynamicBitset, DynamicBitset> LookupTable;
-	size_t inputSize;
-	size_t outputSize;
 };
 
 #endif

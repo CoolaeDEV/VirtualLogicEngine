@@ -7,6 +7,7 @@
 // It handles Levelization, Event Queueing, compilation of sim, and more.
 
 #include <vector>
+#include <variant>
 #include <bitset>
 #include <unordered_map>
 #include <memory>
@@ -43,6 +44,9 @@ public:
     }
 };
 
+
+
+
 class Simulation {
 public:
     Simulation(SimulationMode initMode);
@@ -60,10 +64,9 @@ public:
     }
 
     void tick();
+    void levelize();
 private:
     void simulateRealtime();
-    void buildCompiledLUT();
-    void evaluteCompiledLUT();
 };
 
 enum class SimulationMode {
