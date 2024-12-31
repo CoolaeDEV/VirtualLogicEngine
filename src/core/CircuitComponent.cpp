@@ -4,11 +4,11 @@
 void Wire::process(size_t circuitInputIndex) {
 	if (source) {
 		for (int i = 0; i < source->size(); i++) {
-			if (std::holds_alternative<Gate>((*source)[i])) {
+			if (std::holds_alternative<Gate*>((*source)[i])) {
 				Gate* gate = std::get<Gate*>((*source)[i]);
 				data = gate->outputs;
 			}
-			else if (std::holds_alternative<Circuit>((*source)[i])) {
+			else if (std::holds_alternative<Circuit*>((*source)[i])) {
 				Circuit* circuit = std::get<Circuit*>((*source)[i]);
 				data = circuit->inputs[circuitInputIndex];
 			}
@@ -90,11 +90,11 @@ void Circuit::process() {
 void Circuit::levelize() {
 	for (Wire wire : wires) {
 		for (int i = 0; i < wire.source->size(); i++) {
-			if (std::holds_alternative<Gate>((*wire.source)[i])) {
+			if (std::holds_alternative<Gate*>((*wire.source)[i])) {
 				Gate* gate = std::get<Gate*>((*wire.source)[i]);
 				wire.level = gate->level;
 			}
-			if (std::holds_alternative<Circuit>((*wire.source)[i])) {
+			if (std::holds_alternative<Circuit*>((*wire.source)[i])) {
 				Circuit* circuit = std::get<Circuit*>((*wire.source)[i]);
 				wire.level = circuit->level;
 			}
