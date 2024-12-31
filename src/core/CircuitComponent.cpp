@@ -105,13 +105,19 @@ void Circuit::levelize() {
 		for (Wire wire : gate.inputWires) {
 			inputLevels.push_back(wire.level);
 		}
-        int newLevel = *std::max_element(inputLevels.begin(), inputLevels.end());
-		auto it = std::find(gates.begin(), gates.end(), gate);
-		__int64 index = 0;
-		if (it != gates.end()) {
-			index = std::distance(gates.begin(), it);
+		int maxValue = std::numeric_limits<int>::min();
+		for (int num : inputLevels) {
+			if (num > maxValue) {
+				maxValue = num;
+			}
 		}
-		gates[index].level = newLevel + 1;
+		int index = -1;
+		for (size_t i = 0; i < gates.size(); i++) {
+			if (&gates[i] == &gate) {
+				index = static_cast<int>(i);
+			}
+		}
+		gates[index].level = maxValue + 1;
 	}
 
 
@@ -121,48 +127,44 @@ void Circuit::connectWire(Wire* wire, std::variant<Circuit, Gate> source, std::v
 	std::visit([&](auto&& arg) {  
 		wire->source->emplace_back(arg);
 	}, source);  
-
-	if (std::holds_alternative<Gate>(source)) {  
-		Gate& gate = std::get<Gate>(source);  
-		auto it = std::find(gates.begin(), gates.end(), gate);
-		__int64 index = 0;
-		if (it != gates.end()) {
-			index = std::distance(gates.begin(), it);
-		}
-		gates[index].outputWires.emplace_back(*wire);
-	}
-	if (std::holds_alternative<Circuit>(source)) {
-		Circuit& circuit = std::get<Circuit>(source);
-		auto it = std::find(subCircuits.begin(), subCircuits.end(), circuit);
-		__int64 index = 0;
-		if (it != subCircuits.end()) {
-			index = std::distance(subCircuits.begin(), it);
-		}
-		subCircuits[index]->inputs.emplace_back(wire->data);
-	}
-	if (std::holds_alternative<Gate>(destination)) {  
-		Gate& gate = std::get<Gate>(destination);  
-		auto it = std::find(gates.begin(), gates.end(), gate);
-		__int64 index = 0;
-		if (it != gates.end()) {
-			index = std::distance(gates.begin(), it);
-		}
-		gates[index].inputWires.emplace_back(*wire);
-	}
-	if (std::holds_alternative<Circuit>(destination)) {
-		Circuit& circuit = std::get<Circuit>(destination);
-		//circuit.outputs.push_back(wire->data);
-		auto it = std::find(subCircuits.begin(), subCircuits.end(), circuit);
-		__int64 index = 0;
-		if (it != subCircuits.end()) {
-			index = std::distance(subCircuits.begin(), it);
-		}
-		subCircuits[index]->outputs.emplace_back(wire->data);
-	}
-
-	std::visit([&](auto&& arg) {  
+	
+	std::visit([&](auto&& arg) {
 		wire->destination->emplace_back(arg);
-	}, destination);  
+	}, destination);
+
+
+	if (std::holds_alternative<Gate>(source)) {
+		Gate gate = std::get<Gate>(source);
+		auto it = std::find(gates.begin(), gates.end(), gate);
+		if (it != gates.end()) {
+			gates[std::distance(gates.begin(), it)].outputWires.emplace_back(*wire);
+		}
+	}
+
+	if (std::holds_alternative<Gate>(destination)) {
+		Gate gate = std::get<Gate>(destination);
+		auto it = std::find(gates.begin(), gates.end(), gate);
+		if (it != gates.end()) {
+			gates[std::distance(gates.begin(), it)].inputWires.emplace_back(*wire);
+		}
+	}
+
+	if (std::holds_alternative<Circuit>(source)) {
+		Circuit circuit = std::get<Circuit>(source);
+		auto it = std::find(subCircuits.begin(), subCircuits.end(), circuit);
+		if (it != subCircuits.end()) {
+			subCircuits[std::distance(subCircuits.begin(), it)]->inputs.emplace_back(wire->data);
+		}
+	}
+
+	if (std::holds_alternative<Circuit>(destination)) {
+		Circuit circuit = std::get<Circuit>(destination);
+		auto it = std::find(subCircuits.begin(), subCircuits.end(), circuit);
+		if (it != subCircuits.end()) {
+			subCircuits[std::distance(subCircuits.begin(), it)]->outputs.emplace_back(wire->data);
+		}
+	}
+
 }
 
 void Circuit::addGate(Gate gate) {

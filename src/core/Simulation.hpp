@@ -15,6 +15,7 @@
 #include <cstdint>
 #include <queue>
 #include <functional>
+#include <limits>
 #include <string>
 #include "../other/DynamicBitset.hpp"
 #include "CircuitComponent.hpp"

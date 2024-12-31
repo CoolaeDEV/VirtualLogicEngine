@@ -25,12 +25,6 @@ public:
     Wire(size_t wireSize) : data(wireSize) {}
 
     void process(size_t circuitOutputIndex);
-
-
-    ~Wire() {
-        delete source;
-        delete destination;
-    }
 };
 
 class Gate : public CircuitComponent {
@@ -61,6 +55,9 @@ public:
     void process();
     void setInput(size_t index, const DynamicBitset& input);
 
+    bool operator==(const Gate& other) const {
+		return inputs == other.inputs && outputs == other.outputs && inputWires == other.inputWires && outputWires == other.outputWires && level == other.level && Type == other.Type;
+    }
     ~Gate() = default;
 };
 
@@ -88,7 +85,9 @@ public:
     void connectWire(Wire* wire, std::variant<Circuit, Gate> source, std::variant<Circuit, Gate> destination);
     void levelize();
 
-
+    bool operator==(const Circuit& other) const {
+		return subCircuits == other.subCircuits && wires == other.wires && gates == other.gates && inputs == other.inputs && outputs == other.outputs && level == other.level;
+    }
     ~Circuit() = default;
 
 private:
