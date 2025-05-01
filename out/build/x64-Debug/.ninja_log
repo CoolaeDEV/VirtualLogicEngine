@@ -1,0 +1,10 @@
+# ninja log v6
+34	115	7677775368523346	CMakeFiles/VirtualLogicSimulator.dir/src/bnn/macro_recognizer.cpp.obj	bdb248e3c47724bf
+5	481	7677789770347849	CMakeFiles/VirtualLogicSimulator.dir/src/main.cpp.obj	f3a0e10a75c38098
+42	117	7677775368581798	CMakeFiles/VirtualLogicSimulator.dir/src/opencl/OpenCLManager.cpp.obj	29d0e07c3f67834e
+472	1924	7677776595907070	VirtualLogicSimulator.exe	906118c677d48081
+51	130	7677792074692018	CMakeFiles/VirtualLogicSimulator.dir/src/opencl/OpenCLManager.cpp.obj	f013114e2652d565
+57	134	7677792074749516	CMakeFiles/VirtualLogicSimulator.dir/src/bnn/macro_recognizer.cpp.obj	7852b344d2abaf74
+47	298	7677793288086264	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/Wire.cpp.obj	78456a74e11e262a
+35	304	7677793287979273	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/Gate.cpp.obj	cb2c895ef2729863
+41	415	7677793288032823	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/MacroGate.cpp.obj	679bb65816b7d2cc

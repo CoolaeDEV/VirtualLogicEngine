@@ -1,0 +1,3 @@
+C:/Users/marce/source/repos/CoolaeDEV/VirtualLogicEngine/out/build/x64-Debug/CMakeFiles/VirtualLogicSimulator.dir
+C:/Users/marce/source/repos/CoolaeDEV/VirtualLogicEngine/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/marce/source/repos/CoolaeDEV/VirtualLogicEngine/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
