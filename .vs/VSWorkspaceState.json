@@ -13,6 +13,6 @@
     "\\src\\simulator",
     "\\src\\simulator\\headers"
   ],
-  "SelectedNode": "\\src\\simulator\\headers\\ThreadPool.h",
+  "SelectedNode": "\\src\\bnn\\bnn_model.py",
   "PreviewInSolutionExplorer": false
 }
