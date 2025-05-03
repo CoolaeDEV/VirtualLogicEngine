@@ -89,19 +89,11 @@ build CMakeFiles\VirtualLogicSimulator.dir\src\simulator\Wire.cpp.obj: CXX_COMPI
   TARGET_COMPILE_PDB = CMakeFiles\VirtualLogicSimulator.dir\
   TARGET_PDB = VirtualLogicSimulator.pdb
 
-build CMakeFiles\VirtualLogicSimulator.dir\src\opencl\OpenCLManager.cpp.obj: CXX_COMPILER__VirtualLogicSimulator_unscanned_Debug C$:\Users\marce\source\repos\CoolaeDEV\VirtualLogicEngine\src\opencl\OpenCLManager.cpp || cmake_object_order_depends_target_VirtualLogicSimulator
+build CMakeFiles\VirtualLogicSimulator.dir\src\simulator\ThreadPool.cpp.obj: CXX_COMPILER__VirtualLogicSimulator_unscanned_Debug C$:\Users\marce\source\repos\CoolaeDEV\VirtualLogicEngine\src\simulator\ThreadPool.cpp || cmake_object_order_depends_target_VirtualLogicSimulator
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd
   INCLUDES = -IC:\Users\marce\source\repos\CoolaeDEV\VirtualLogicEngine\src
   OBJECT_DIR = CMakeFiles\VirtualLogicSimulator.dir
-  OBJECT_FILE_DIR = CMakeFiles\VirtualLogicSimulator.dir\src\opencl
-  TARGET_COMPILE_PDB = CMakeFiles\VirtualLogicSimulator.dir\
-  TARGET_PDB = VirtualLogicSimulator.pdb
-
-build CMakeFiles\VirtualLogicSimulator.dir\src\bnn\macro_recognizer.cpp.obj: CXX_COMPILER__VirtualLogicSimulator_unscanned_Debug C$:\Users\marce\source\repos\CoolaeDEV\VirtualLogicEngine\src\bnn\macro_recognizer.cpp || cmake_object_order_depends_target_VirtualLogicSimulator
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd
-  INCLUDES = -IC:\Users\marce\source\repos\CoolaeDEV\VirtualLogicEngine\src
-  OBJECT_DIR = CMakeFiles\VirtualLogicSimulator.dir
-  OBJECT_FILE_DIR = CMakeFiles\VirtualLogicSimulator.dir\src\bnn
+  OBJECT_FILE_DIR = CMakeFiles\VirtualLogicSimulator.dir\src\simulator
   TARGET_COMPILE_PDB = CMakeFiles\VirtualLogicSimulator.dir\
   TARGET_PDB = VirtualLogicSimulator.pdb
 
@@ -113,7 +105,7 @@ build CMakeFiles\VirtualLogicSimulator.dir\src\bnn\macro_recognizer.cpp.obj: CXX
 #############################################
 # Link the executable VirtualLogicSimulator.exe
 
-build VirtualLogicSimulator.exe: CXX_EXECUTABLE_LINKER__VirtualLogicSimulator_Debug CMakeFiles\VirtualLogicSimulator.dir\src\main.cpp.obj CMakeFiles\VirtualLogicSimulator.dir\src\simulator\Circuit.cpp.obj CMakeFiles\VirtualLogicSimulator.dir\src\simulator\Gate.cpp.obj CMakeFiles\VirtualLogicSimulator.dir\src\simulator\MacroGate.cpp.obj CMakeFiles\VirtualLogicSimulator.dir\src\simulator\Wire.cpp.obj CMakeFiles\VirtualLogicSimulator.dir\src\opencl\OpenCLManager.cpp.obj CMakeFiles\VirtualLogicSimulator.dir\src\bnn\macro_recognizer.cpp.obj
+build VirtualLogicSimulator.exe: CXX_EXECUTABLE_LINKER__VirtualLogicSimulator_Debug CMakeFiles\VirtualLogicSimulator.dir\src\main.cpp.obj CMakeFiles\VirtualLogicSimulator.dir\src\simulator\Circuit.cpp.obj CMakeFiles\VirtualLogicSimulator.dir\src\simulator\Gate.cpp.obj CMakeFiles\VirtualLogicSimulator.dir\src\simulator\MacroGate.cpp.obj CMakeFiles\VirtualLogicSimulator.dir\src\simulator\Wire.cpp.obj CMakeFiles\VirtualLogicSimulator.dir\src\simulator\ThreadPool.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

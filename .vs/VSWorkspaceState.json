@@ -8,7 +8,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\bnn"
+    "\\src\\bnn",
+    "\\src\\opencl",
+    "\\src\\simulator",
+    "\\src\\simulator\\headers"
   ],
+  "SelectedNode": "\\src\\simulator\\headers\\ThreadPool.h",
   "PreviewInSolutionExplorer": false
 }

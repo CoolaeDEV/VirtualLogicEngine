@@ -1,19 +1,19 @@
 #include "headers/MacroGate.h"
 
-MacroGate::MacroGate(const std::vector<Wire*>& inputs, const std::vector<Wire*>& outputs, Circuit* internalCircuit)
-	: Gate(inputs, outputs), circuit(internalCircuit) {
+MacroGate::MacroGate(std::vector<Wire*>& inputs, std::vector<Wire*>& outputs, Circuit* internalCircuit)
+	: Gate(GateType::MacroGate, inputs, outputs), circuit(internalCircuit) {
 }
 
 void MacroGate::evaluate() {
-	const auto& macroInputs = circuit->getInputWires();
-	for (size_t i = 0; i < inputs.size(); i++) {
-		macroInputs[i]->setValue(inputs[i]->getValue());
-	}
+    const auto& macroInputs = circuit->getInputWires();
+    for (size_t i = 0; i < inputs.size(); i++) {
+        macroInputs[i]->setValue(static_cast<Wire::Value>(inputs[i]->getValue()));
+    }
 
-	circuit->simulateTick();
+    circuit->simulateTick();
 
-	const auto& macroOutputs = circuit->getOutputWires();
-	for (size_t i = 0; i < outputs.size(); ++i) {
-		outputs[i]->setValue(macroOutputs[i]->getValue());
-	}
+    const auto& macroOutputs = circuit->getOutputWires();
+    for (size_t i = 0; i < outputs.size(); ++i) {
+        outputs[i]->setValue(static_cast<Wire::Value>(macroOutputs[i]->getValue()));
+    }
 }

@@ -7,13 +7,16 @@
 #include "Wire.h"  
 #include "Gate.h"  
 #include "MacroGate.h"
+#include "ThreadPool.h"
 
 class Circuit {
 public:
 
+	Circuit(size_t threads) : threadCount(threads), threadPool(threads), chunkSize(128) {};
+
 	Wire* createWire();
-	template<typename GateType, typename... Args>
-	GateType* createGate(Args&&... args);
+
+	Gate* createGate(GateType Gtype, std::vector<Wire*>& inputs, std::vector<Wire*>& outputs);
 
 	void markWireDirty(Wire* wire);
 	void simulateTick();
@@ -22,6 +25,8 @@ public:
 	const std::vector<Wire*>& getOutputWires() const;
 	void addInputWire(Wire* wire);
 	void addOutputWire(Wire* wire);
+
+	void finalizeLevels();
 
 private:
 	std::vector<Wire*> wires;
@@ -33,6 +38,12 @@ private:
 	std::vector<Wire*> dirtyWires;
 	std::mutex dirtyMutex;
 
+	std::vector<std::vector<Gate*>> levelizedGates;
+	bool levelsFinalized = false;
+
 	void processChunk(size_t start, size_t end, std::atomic<size_t>* gatesProcessed);
 	size_t chunkSize;
+	size_t threadCount;
+
+	ThreadPool threadPool;
 };

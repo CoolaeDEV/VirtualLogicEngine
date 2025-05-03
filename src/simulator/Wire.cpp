@@ -22,6 +22,10 @@ void Wire::clearDirty() {
 	dirty = false;
 }
 
+bool Wire::isDirty() const {
+	return dirty;
+}
+
 void Wire::attachGate(Gate* gate) {
 	attachedGates.push_back(gate);
 }

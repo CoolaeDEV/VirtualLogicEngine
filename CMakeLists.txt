@@ -14,6 +14,4 @@ add_executable(VirtualLogicSimulator
 	src/simulator/Circuit.cpp
 	src/simulator/Gate.cpp
 	src/simulator/MacroGate.cpp
-	src/simulator/Wire.cpp
-	src/opencl/OpenCLManager.cpp
-	src/bnn/macro_recognizer.cpp)
+	src/simulator/Wire.cpp "src/simulator/ThreadPool.cpp" "src/simulator/headers/ThreadPool.h")

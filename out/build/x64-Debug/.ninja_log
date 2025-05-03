@@ -1,10 +1,15 @@
 # ninja log v6
-34	115	7677775368523346	CMakeFiles/VirtualLogicSimulator.dir/src/bnn/macro_recognizer.cpp.obj	bdb248e3c47724bf
-5	481	7677789770347849	CMakeFiles/VirtualLogicSimulator.dir/src/main.cpp.obj	f3a0e10a75c38098
-42	117	7677775368581798	CMakeFiles/VirtualLogicSimulator.dir/src/opencl/OpenCLManager.cpp.obj	29d0e07c3f67834e
-472	1924	7677776595907070	VirtualLogicSimulator.exe	906118c677d48081
-51	130	7677792074692018	CMakeFiles/VirtualLogicSimulator.dir/src/opencl/OpenCLManager.cpp.obj	f013114e2652d565
 57	134	7677792074749516	CMakeFiles/VirtualLogicSimulator.dir/src/bnn/macro_recognizer.cpp.obj	7852b344d2abaf74
-47	298	7677793288086264	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/Wire.cpp.obj	78456a74e11e262a
-35	304	7677793287979273	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/Gate.cpp.obj	cb2c895ef2729863
-41	415	7677793288032823	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/MacroGate.cpp.obj	679bb65816b7d2cc
+26	539	7679529460372912	CMakeFiles/VirtualLogicSimulator.dir/src/main.cpp.obj	f3a0e10a75c38098
+23	301	7679531249161823	build.ninja	3463ac553ddfe862
+51	130	7677792074692018	CMakeFiles/VirtualLogicSimulator.dir/src/opencl/OpenCLManager.cpp.obj	f013114e2652d565
+48	731	7679529259216457	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/MacroGate.cpp.obj	679bb65816b7d2cc
+540	1963	7679529465514623	VirtualLogicSimulator.exe	ff1fec8dcfe49e7
+54	599	7679529259269743	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/Wire.cpp.obj	78456a74e11e262a
+42	602	7679529259147947	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/Gate.cpp.obj	cb2c895ef2729863
+35	794	7679529259099708	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/Circuit.cpp.obj	a0687332385ce9a6
+32	732	7679538721131361	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/MacroGate.cpp.obj	679bb65816b7d2cc
+38	757	7679538721202042	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/ThreadPool.cpp.obj	228f79667df95468
+26	784	7679538721080833	CMakeFiles/VirtualLogicSimulator.dir/src/simulator/Circuit.cpp.obj	a0687332385ce9a6
+20	904	7679538721024690	CMakeFiles/VirtualLogicSimulator.dir/src/main.cpp.obj	f3a0e10a75c38098
+904	2402	7679538729850978	VirtualLogicSimulator.exe	d69e8763c81393b6

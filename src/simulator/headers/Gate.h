@@ -2,9 +2,12 @@
 #include <vector>
 #include "Wire.h"
 
+enum GateType {
+	AND, NOT, MacroGate
+};
 class Gate {
 public:
-	Gate(const std::vector<Wire*>& inputs, const std::vector<Wire*>& outputs);
+	Gate(const GateType type, std::vector<Wire*>& inputs, std::vector<Wire*>& outputs);
 
 	virtual ~Gate() = default;
 
@@ -13,23 +16,30 @@ public:
 	const std::vector<Wire*>& getInputs() const;
 	const std::vector<Wire*>& getOutputs() const;
 
+	void setLevel(int lvl);
+	int getLevel() const;
+
 protected:
-	std::vector<Wire*> inputs;
-	std::vector<Wire*> outputs;
+	const std::vector<Wire*> inputs;
+	const std::vector<Wire*> outputs;
+
+	int level = -1;
+
+	GateType type;
 };
 
 // Gate Declaration
 
 class AndGate : public Gate {
 public:
-	AndGate(const std::vector<Wire*>& inputs, Wire* output);
+	AndGate(std::vector<Wire*>& inputs, std::vector<Wire*>& outputs);
 
 	void evaluate() override;
 };
 
 class NotGate : public Gate {
 public:
-	NotGate(Wire* input, Wire* output);
+	NotGate(Wire* input, std::vector<Wire*>& outputs);
 
 	void evaluate() override;
 };

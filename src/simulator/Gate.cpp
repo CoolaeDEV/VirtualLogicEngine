@@ -1,8 +1,6 @@
 #include "headers/Gate.h"
 
-Gate::Gate(const std::vector<Wire*>& inputs, const std::vector<Wire*>& outputs)
-	: inputs(inputs), outputs(outputs) {
-}
+Gate::Gate(const GateType GType, std::vector<Wire*>& inputs, std::vector<Wire*>& outputs) : inputs(inputs), outputs(outputs), type(GType){}
 
 const std::vector<Wire*>& Gate::getInputs() const {
 	return inputs;
@@ -12,9 +10,17 @@ const std::vector<Wire*>& Gate::getOutputs() const {
 	return outputs;
 }
 
+void Gate::setLevel(int lvl) {
+	level = lvl;
+}
+
+int Gate::getLevel() const{
+	return level;
+}
+
 // Gate Implementation
 
-AndGate::AndGate(const std::vector<Wire*>& inputs, Wire* output) : Gate(inputs, { output }) {}
+AndGate::AndGate(std::vector<Wire*>& inputs, std::vector<Wire*>& outputs) : Gate(GateType::AND, inputs, outputs) {}
 
 void AndGate::evaluate() {
 	bool result = true;
@@ -28,10 +34,14 @@ void AndGate::evaluate() {
 	outputs[0]->setValue(result ? Wire::HIGH : Wire::LOW);
 }
 
-NotGate::NotGate(Wire* input, Wire* output) : Gate({ input }, { output }) {}
+NotGate::NotGate(Wire* input, std::vector<Wire*>& outputs)  
+	: Gate(GateType::NOT, std::vector<Wire*>{input}, outputs) {  
+}
 
 void NotGate::evaluate() {
-	Wire::Value inputVal = inputs[0]->getValue();
-	Wire::Value outputVal = (inputVal == Wire::LOW) ? Wire::HIGH : Wire::LOW;
-	outputs[0]->setValue(outputVal);
+	if (inputs.empty() || outputs.empty()) return;
+
+	// NOT gate logic: output is the inverse of the input  
+	outputs[0]->setValue(inputs[0]->getValue() == Wire::Value::HIGH ? Wire::Value::LOW : Wire::Value::HIGH);
+	outputs[0]->markDirty();
 }
