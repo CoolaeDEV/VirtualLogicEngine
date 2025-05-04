@@ -25,6 +25,7 @@ public:
 	const std::vector<Wire*>& getOutputWires() const;
 	void addInputWire(Wire* wire);
 	void addOutputWire(Wire* wire);
+	void reset();
 
 	void finalizeLevels();
 

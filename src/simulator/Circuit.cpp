@@ -25,6 +25,42 @@ Gate* Circuit::createGate(GateType Gtype, std::vector<Wire*>& inputs, std::vecto
 		break;
 	case GateType::MacroGate:
 		throw std::invalid_argument("Macro gates require a different constructor.");
+	case GateType::BUFFER:
+		if (inputs.size() != 1) {
+			throw std::invalid_argument("BUFFER gates require a different constructor.");
+		}
+		gate = new BufferGate(inputs[0], outputs);
+		break;
+	case GateType::OR:
+		if (inputs.size() != 1) {
+			throw std::invalid_argument("OR gates require a different constructor.");
+		}
+		gate = new ORGate(inputs, outputs);
+		break;
+	case GateType::NOR:
+		if (inputs.size() != 1) {
+			throw std::invalid_argument("NOR gates require a different constructor.");
+		}
+		gate = new NorGate(inputs, outputs);
+		break;
+	case GateType::NAND:
+		if (inputs.size() != 1) {
+			throw std::invalid_argument("NAND gates require a different constructor.");
+		}
+		gate = new NANDGate(inputs, outputs);
+		break;
+	case GateType::XOR:
+		if (inputs.size() != 1) {
+			throw std::invalid_argument("XOR gates require a different constructor.");
+		}
+		gate = new XORGate(inputs, outputs);
+		break;
+	case GateType::XNOR:
+		if (inputs.size() != 1) {
+			throw std::invalid_argument("XOR gates require a different constructor.");
+		}
+		gate = new XNORGate(inputs, outputs);
+		break;
 	default:
 		throw std::invalid_argument("Unsupported gate type.");
 	}
@@ -169,4 +205,10 @@ void Circuit::addInputWire(Wire* wire) {
 
 void Circuit::addOutputWire(Wire* wire) {
 	outputWires.push_back(wire);
+}
+
+void Circuit::reset() {
+	for (auto* gate : gates) {
+		gate->reset();
+	}
 }

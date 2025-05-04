@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(VirtualLogicSimulator)
+project(VirtualLogicEngine)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -9,9 +9,9 @@ include_directories(src)
 file(GLOB SOURCES src/*.cpp)
 
 
-add_executable(VirtualLogicSimulator
+add_executable(VirtualLogicEngine
 	src/main.cpp
 	src/simulator/Circuit.cpp
 	src/simulator/Gate.cpp
 	src/simulator/MacroGate.cpp
-	src/simulator/Wire.cpp "src/simulator/ThreadPool.cpp" "src/simulator/headers/ThreadPool.h")
+	src/simulator/Wire.cpp "src/simulator/ThreadPool.cpp" "src/simulator/headers/ThreadPool.h" "src/simulator/TickRunner.cpp" "src/simulator/headers/TickRunner.h"  "src/simulator/examples/adder_test.cpp" "src/GodotBindings/headers/GDVirtualLogicEngine.h" "src/GodotBindings/GDVirtualLogicEngine.cpp" "src/GodotBindings/register_types.cpp" "src/GodotBindings/headers/register_types.h")
