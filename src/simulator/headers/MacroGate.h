@@ -6,7 +6,7 @@ class Circuit;
 
 class MacroGate : public Gate {
 public:
-	MacroGate(std::vector<Wire*>& inputs, std::vector<Wire*>& outputs, Circuit* internalCircuit);
+	MacroGate(std::vector<Wire*>& inputs, Wire* output, Circuit* internalCircuit);
 
 	void evaluate() override;
 

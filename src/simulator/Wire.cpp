@@ -1,7 +1,7 @@
 #include "headers/Wire.h"
 #include "headers/Gate.h"
 
-Wire::Wire() : value(Value::LOW), dirty(false) {}
+Wire::Wire(Gate* from, Gate* to, uint32_t delay) : src(from), dst(to), delayTicks(delay), value(Value::LOW), dirty(false) {}
 
 void Wire::setValue(Value newValue) {
 	if (value != newValue) {

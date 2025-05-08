@@ -14,4 +14,4 @@ add_executable(VirtualLogicEngine
 	src/simulator/Circuit.cpp
 	src/simulator/Gate.cpp
 	src/simulator/MacroGate.cpp
-	src/simulator/Wire.cpp "src/simulator/ThreadPool.cpp" "src/simulator/headers/ThreadPool.h" "src/simulator/TickRunner.cpp" "src/simulator/headers/TickRunner.h"  "src/simulator/examples/adder_test.cpp" "src/GodotBindings/headers/GDVirtualLogicEngine.h" "src/GodotBindings/GDVirtualLogicEngine.cpp" "src/GodotBindings/register_types.cpp" "src/GodotBindings/headers/register_types.h")
+	src/simulator/Wire.cpp "src/simulator/ThreadPool.cpp" "src/simulator/headers/ThreadPool.h" "src/simulator/TickRunner.cpp" "src/simulator/headers/TickRunner.h"  "src/simulator/examples/adder_test.cpp")

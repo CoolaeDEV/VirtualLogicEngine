@@ -6,48 +6,69 @@
 #include <string>
 
 int main() {
-	Circuit circuit(8);
+	Circuit circuit(6);
 
 	TickRunner runner([&]() {
 		circuit.simulateTick();
-		}, 10.0);
+	}, 60.0);
 
 	Wire* A = circuit.createWire();
 	Wire* B = circuit.createWire();
 	Wire* C = circuit.createWire();
-	Wire* OUT = circuit.createWire();
+
+	Wire* E = circuit.createWire();
+
+	Wire* F = circuit.createWire();
+	Wire* D = circuit.createWire();
+	
+	Wire* G = circuit.createWire();
+	Wire* H = circuit.createWire();
 
 	circuit.addInputWire(A);
-	circuit.addOutputWire(OUT);
+	circuit.addInputWire(B);
+	circuit.addInputWire(C);
 
-	std::vector<Wire*> ANDinputs = { A };
-	std::vector<Wire*> ANDoutput = { B };
+	circuit.addOutputWire(C);
+	circuit.addOutputWire(H);
 
-	std::vector<Wire*> NOTinputs = { B };
-	std::vector<Wire*> NOToutputs = { C };
+	std::vector<Wire*> xorInputs1 = { A, B };
+	std::vector<Wire*> xorInputs2 = { E, C };
 
-	std::vector<Wire*> AND2inputs = { A, C };
-	std::vector<Wire*> AND2output = { OUT };
+	std::vector<Wire*> andInputs1 = { E, C };
+	std::vector<Wire*> andInputs2 = { A, B };
 
-	Gate* andGate = circuit.createGate(GateType::BUFFER, ANDinputs, ANDoutput);
-	Gate* notGate = circuit.createGate(GateType::NOT, NOTinputs, NOToutputs);
-	Gate* andGate2 = circuit.createGate(GateType::AND, AND2inputs, AND2output);
+	std::vector<Wire*> orInputs = { F, D };
 
-	A->setValue(Wire::LOW);
+	Gate* xorGate1 = circuit.createGate(GateType::XOR, xorInputs1, E);
+	Gate* xorGate2 = circuit.createGate(GateType::XOR, xorInputs2, G);
+
+	Gate* andGate1 = circuit.createGate(GateType::AND, andInputs1, F);
+	Gate* andGate2 = circuit.createGate(GateType::AND, andInputs2, D);
+
+	Gate* orGate1 = circuit.createGate(GateType::OR, orInputs, H);
+
+	A->setValue(Wire::HIGH);
+	B->setValue(Wire::HIGH);
+	C->setValue(Wire::HIGH);
 
 	circuit.markWireDirty(A);
 	circuit.markWireDirty(B);
 	circuit.markWireDirty(C);
+	circuit.markWireDirty(D);
+	circuit.markWireDirty(E);
+	circuit.markWireDirty(F);
+	circuit.markWireDirty(G);
 
 	circuit.finalizeLevels();
 
 	runner.start();
-
+	
 	std::this_thread::sleep_for(std::chrono::seconds(2));
-
+	
 	runner.stop();
 
-	std::cout << "circuit output value == " << OUT->getValue();
+	std::cout << "SUM output value == " << G->getValue() << std::endl;
+	std::cout << "CIN output value == " << H->getValue() << std::endl;
 
 	std::string x;
 	std::cin >> x;

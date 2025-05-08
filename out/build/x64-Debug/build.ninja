@@ -113,22 +113,6 @@ build CMakeFiles\VirtualLogicEngine.dir\src\simulator\examples\adder_test.cpp.ob
   TARGET_COMPILE_PDB = CMakeFiles\VirtualLogicEngine.dir\
   TARGET_PDB = VirtualLogicEngine.pdb
 
-build CMakeFiles\VirtualLogicEngine.dir\src\GodotBindings\GDVirtualLogicEngine.cpp.obj: CXX_COMPILER__VirtualLogicEngine_unscanned_Debug C$:\Users\marce\source\repos\CoolaeDEV\VirtualLogicEngine\src\GodotBindings\GDVirtualLogicEngine.cpp || cmake_object_order_depends_target_VirtualLogicEngine
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd
-  INCLUDES = -IC:\Users\marce\source\repos\CoolaeDEV\VirtualLogicEngine\src
-  OBJECT_DIR = CMakeFiles\VirtualLogicEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles\VirtualLogicEngine.dir\src\GodotBindings
-  TARGET_COMPILE_PDB = CMakeFiles\VirtualLogicEngine.dir\
-  TARGET_PDB = VirtualLogicEngine.pdb
-
-build CMakeFiles\VirtualLogicEngine.dir\src\GodotBindings\register_types.cpp.obj: CXX_COMPILER__VirtualLogicEngine_unscanned_Debug C$:\Users\marce\source\repos\CoolaeDEV\VirtualLogicEngine\src\GodotBindings\register_types.cpp || cmake_object_order_depends_target_VirtualLogicEngine
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd
-  INCLUDES = -IC:\Users\marce\source\repos\CoolaeDEV\VirtualLogicEngine\src
-  OBJECT_DIR = CMakeFiles\VirtualLogicEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles\VirtualLogicEngine.dir\src\GodotBindings
-  TARGET_COMPILE_PDB = CMakeFiles\VirtualLogicEngine.dir\
-  TARGET_PDB = VirtualLogicEngine.pdb
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target VirtualLogicEngine
@@ -137,7 +121,7 @@ build CMakeFiles\VirtualLogicEngine.dir\src\GodotBindings\register_types.cpp.obj
 #############################################
 # Link the executable VirtualLogicEngine.exe
 
-build VirtualLogicEngine.exe: CXX_EXECUTABLE_LINKER__VirtualLogicEngine_Debug CMakeFiles\VirtualLogicEngine.dir\src\main.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\Circuit.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\Gate.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\MacroGate.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\Wire.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\ThreadPool.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\TickRunner.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\examples\adder_test.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\GodotBindings\GDVirtualLogicEngine.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\GodotBindings\register_types.cpp.obj
+build VirtualLogicEngine.exe: CXX_EXECUTABLE_LINKER__VirtualLogicEngine_Debug CMakeFiles\VirtualLogicEngine.dir\src\main.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\Circuit.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\Gate.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\MacroGate.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\Wire.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\ThreadPool.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\TickRunner.cpp.obj CMakeFiles\VirtualLogicEngine.dir\src\simulator\examples\adder_test.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

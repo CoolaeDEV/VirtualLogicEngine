@@ -1,4 +1,5 @@
 #include "headers/Circuit.h"
+#include <iostream>
 
 Wire* Circuit::createWire() {
 	Wire* wire = new Wire();
@@ -7,59 +8,41 @@ Wire* Circuit::createWire() {
 	return wire;
 }
 
-Gate* Circuit::createGate(GateType Gtype, std::vector<Wire*>& inputs, std::vector<Wire*>& outputs) {  
+Gate* Circuit::createGate(GateType Gtype, std::vector<Wire*>& inputs, Wire* output) {  
 	Gate* gate = nullptr;
 
 	switch (Gtype) {
 	case GateType::AND:
-		if (outputs.size() != 1) {
-			throw std::invalid_argument("AND gate requires exactly one output wire.");
-		}
-		gate = new AndGate(inputs, outputs);
+		gate = new AndGate(inputs, output);
 		break;
 	case GateType::NOT:
-		if (inputs.size() != 1) {
-			throw std::invalid_argument("NOT gate requires exactly one input wire.");
-		}
-		gate = new NotGate(inputs[0], outputs);
+		gate = new NotGate(inputs[0], output);
 		break;
 	case GateType::MacroGate:
 		throw std::invalid_argument("Macro gates require a different constructor.");
 	case GateType::BUFFER:
-		if (inputs.size() != 1) {
-			throw std::invalid_argument("BUFFER gates require a different constructor.");
-		}
-		gate = new BufferGate(inputs[0], outputs);
+
+		gate = new BufferGate(inputs[0], output);
 		break;
 	case GateType::OR:
-		if (inputs.size() != 1) {
-			throw std::invalid_argument("OR gates require a different constructor.");
-		}
-		gate = new ORGate(inputs, outputs);
+
+		gate = new ORGate(inputs, output);
 		break;
 	case GateType::NOR:
-		if (inputs.size() != 1) {
-			throw std::invalid_argument("NOR gates require a different constructor.");
-		}
-		gate = new NorGate(inputs, outputs);
+
+		gate = new NorGate(inputs, output);
 		break;
 	case GateType::NAND:
-		if (inputs.size() != 1) {
-			throw std::invalid_argument("NAND gates require a different constructor.");
-		}
-		gate = new NANDGate(inputs, outputs);
+
+		gate = new NANDGate(inputs, output);
 		break;
 	case GateType::XOR:
-		if (inputs.size() != 1) {
-			throw std::invalid_argument("XOR gates require a different constructor.");
-		}
-		gate = new XORGate(inputs, outputs);
+
+		gate = new XORGate(inputs, output);
 		break;
 	case GateType::XNOR:
-		if (inputs.size() != 1) {
-			throw std::invalid_argument("XOR gates require a different constructor.");
-		}
-		gate = new XNORGate(inputs, outputs);
+
+		gate = new XNORGate(inputs, output);
 		break;
 	default:
 		throw std::invalid_argument("Unsupported gate type.");
@@ -103,23 +86,10 @@ void Circuit::simulateTick() {
 				for (size_t j = start; j < end; ++j) {
 					level[j]->evaluate();
 				}
-				});
+			});
 		}
 
 		threadPool.waitAll();
-	}
-}
-
-void Circuit::processChunk(size_t start, size_t end, std::atomic<size_t>* gatesProcessed) {
-	for (size_t i = start; i < end; i++) {
-		Wire* wire = wires[i];
-		if (wire->isDirty()) {
-			const auto& attachedGates = wire->getAttachedGates();
-			for (Gate* gate : attachedGates) {
-				gate->evaluate();
-				gatesProcessed->fetch_add(1, std::memory_order_relaxed);
-			}
-		}
 	}
 }
 
@@ -129,6 +99,8 @@ void Circuit::finalizeLevels() {
 		gate->setLevel(-1);
 	}
 
+	std::cout << "[ CIRCUIT SIMULATION ] All Gates Resetted" << std::endl;
+
 	// find the input gates (the ones with no driving gate)
 	std::vector<Gate*> current;
 	for (Gate* gate : gates) {
@@ -136,11 +108,9 @@ void Circuit::finalizeLevels() {
 		for (Wire* in : gate->getInputs()) {
 			bool hasDriver = false;
 			for (Gate* g : gates) {
-				for (Wire* out : g->getOutputs()) {
-					if (out == in) {
-						hasDriver = true;
-						break;
-					}
+				if (g->getOutput() == in) {
+					hasDriver = true;
+					break;
 				}
 				if (hasDriver) break;
 			}
@@ -153,8 +123,9 @@ void Circuit::finalizeLevels() {
 			gate->setLevel(0);
 			current.push_back(gate);
 		}
+		
 	}
-
+	std::cout << "[ CIRCUIT SIMULATION ] All Gates Have Found Input Gates" << std::endl;
 	// assign levels stuff
 	while (!current.empty()) {
 		std::vector<Gate*> next;
@@ -162,24 +133,24 @@ void Circuit::finalizeLevels() {
 		for (Gate* gate : current) {
 			int lvl = gate->getLevel();
 
-			for (Wire* out : gate->getOutputs()) {
-				for (Gate* sink : out->getAttachedGates()) {
-					int newLevel = lvl + 1;
-					if(sink->getLevel() < newLevel){
-						sink->setLevel(newLevel);
-						next.push_back(sink);
-					}
+			for (Gate* sink : gate->getOutput()->getAttachedGates()) {
+				int newLevel = lvl + 1;
+				if (sink->getLevel() < newLevel) {
+					sink->setLevel(newLevel);
+					next.push_back(sink);
 				}
 			}
 		}
 		current = std::move(next);
+		
 	}
-
+	std::cout << "[ CIRCUIT SIMULATION ] All Gates Assigned Levels" << std::endl;
 	int maxLevel = 0;
 	for (Gate* gate : gates) {
 		maxLevel = std::max(maxLevel, gate->getLevel());
+		
 	}
-
+	std::cout << "[ CIRCUIT SIMULATION ] Set All Gates Max Level" << std::endl;
 	levelizedGates.clear();
 	levelizedGates.resize(maxLevel + 1);
 
@@ -188,7 +159,17 @@ void Circuit::finalizeLevels() {
 			levelizedGates[gate->getLevel()].push_back(gate);
 		}
 	}
+
+	for (auto* gate : levelizedGates[0]) {
+		scheduleGate(gate, 0);
+	}
+
 	levelsFinalized = true;
+}
+
+void Circuit::scheduleGate(Gate* gate, uint32_t delay) {
+	size_t targetTick = (currentTickIndex + delay) % tickMod;
+	tickQueue[targetTick].emplace_back(gate, gate->getOutput()->getValue());
 }
 
 const std::vector<Wire*>& Circuit::getInputWires() const {

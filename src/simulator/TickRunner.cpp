@@ -1,26 +1,26 @@
 #include "headers/TickRunner.h"
 
 TickRunner::TickRunner(std::function<void()> onTickFn, double frequencyHz)
-	: onTick(onTickFn), running(false), singleStep(false), frequency(frequencyHz) {}
+    : onTick(onTickFn), running(false), singleStep(false), frequency(frequencyHz) {}
 
 void TickRunner::start() {
+    using clock = std::chrono::high_resolution_clock;
+
 	if (running) return;
 	running = true;
 
-	tickThread = std::thread([this]() {run(); });
+    tickThread = std::thread([this]() { run(); });
     std::cout << "[ TICKRUNNER ] Sim Started\n";
+    currentTicks = 0;
 }
 
 void TickRunner::stop() {
-	{
-		std::lock_guard<std::mutex> lock(cvMutex);
-		running = false;
-	}
-	cv.notify_all();
-	if (tickThread.joinable())
-		tickThread.join();
+    running = false;
+    if (tickThread.joinable())
+        tickThread.join();
 
     std::cout << "[ TICKRUNNER ] Sim Stopped\n";
+    //std::cout << "[ TICKRUNNER ] finished sim ticks: " << currentTicks << std::endl;
 }
 
 void TickRunner::stepOnce() {
@@ -42,26 +42,24 @@ void TickRunner::run() {
     using clock = std::chrono::high_resolution_clock;
     auto tickDuration = std::chrono::duration<double>(1.0 / frequency);
 
-    while (running) {
+    if (running) {
         auto start = clock::now();
 
         if (singleStep) {
             singleStep = false;
             onTick();
             running = false;
-            break;
         }
         else {
             onTick();
         }
-
         auto end = clock::now();
         auto elapsed = end - start;
         auto sleepTime = tickDuration - elapsed;
 
         if (sleepTime.count() > 0) {
-            std::unique_lock<std::mutex> lock(cvMutex);
-            cv.wait_for(lock, sleepTime, [this]() { return !running; });
+            std::this_thread::sleep_for(sleepTime);
         }
+        
     }
 }

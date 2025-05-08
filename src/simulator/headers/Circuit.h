@@ -9,17 +9,30 @@
 #include "MacroGate.h"
 #include "ThreadPool.h"
 
+
+static constexpr size_t MAX_DELAY_TICKS = 64;
+
+
+struct Event {
+	Gate* gate;
+	bool lastOutput;
+
+	Event(Gate* g, bool prevOut) : gate(g), lastOutput(prevOut) {}
+};
+
 class Circuit {
 public:
 
-	Circuit(size_t threads) : threadCount(threads), threadPool(threads), chunkSize(128) {};
+	Circuit(size_t threads) : threadCount(threads), threadPool(threads), chunkSize(128), tickQueue(MAX_DELAY_TICKS){};
 
 	Wire* createWire();
 
-	Gate* createGate(GateType Gtype, std::vector<Wire*>& inputs, std::vector<Wire*>& outputs);
+	Gate* createGate(GateType Gtype, std::vector<Wire*>& inputs, Wire* output);
 
 	void markWireDirty(Wire* wire);
 	void simulateTick();
+
+	void scheduleGate(Gate* gate, uint32_t delay);
 
 	const std::vector<Wire*>& getInputWires() const;
 	const std::vector<Wire*>& getOutputWires() const;
@@ -42,7 +55,10 @@ private:
 	std::vector<std::vector<Gate*>> levelizedGates;
 	bool levelsFinalized = false;
 
-	void processChunk(size_t start, size_t end, std::atomic<size_t>* gatesProcessed);
+	std::vector<std::vector<Event>> tickQueue;
+	size_t currentTickIndex = 0;
+	size_t tickMod = MAX_DELAY_TICKS;
+
 	size_t chunkSize;
 	size_t threadCount;
 

@@ -7,13 +7,11 @@
   },
   "ExpandedNodes": [
     "",
-    "\\godot_cpp",
     "\\src",
-    "\\src\\GodotBindings",
-    "\\src\\GodotBindings\\headers",
+    "\\src\\simulator",
     "\\src\\simulator\\examples",
     "\\src\\simulator\\headers"
   ],
-  "SelectedNode": "\\src\\GodotBindings\\headers\\register_types.h",
+  "SelectedNode": "\\out",
   "PreviewInSolutionExplorer": false
 }

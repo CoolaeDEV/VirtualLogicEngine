@@ -12,7 +12,11 @@ public:
 		LOW = 0
 	};
 
-	Wire(); // constructor
+	Wire(Gate* from = nullptr, Gate* to = nullptr, uint32_t delay = 1); // constructor
+
+	Gate* src;
+	Gate* dst;
+	uint32_t delayTicks;
 
 	void setValue(Value newValue); // sets the current value of the wire to the ~newValue~
 	Value getValue() const; // gets the current value of the wire

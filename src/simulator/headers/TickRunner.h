@@ -16,6 +16,8 @@ public:
 	void stepOnce();
 	void setFrequency(double Hz);
 	bool isRunning() const;
+
+	int currentTicks;
 private:
 	std::function<void()> onTick;
 	std::atomic<bool> running;
@@ -23,8 +25,9 @@ private:
 	std::thread tickThread;
 	double frequency;
 
+
 	std::condition_variable cv;
 	std::mutex cvMutex;
-	
+
 	void run();
 };
