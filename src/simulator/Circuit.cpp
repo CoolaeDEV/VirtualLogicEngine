@@ -1,48 +1,48 @@
 #include "headers/Circuit.h"
 #include <iostream>
 
-Wire* Circuit::createWire() {
-	Wire* wire = new Wire();
+Wire* Circuit::createWire(Gate* from, int inputIndex, Gate* to) {
+	Wire* wire = new Wire(from, to, inputIndex);
 
 	wires.push_back(wire);
 	return wire;
 }
 
-Gate* Circuit::createGate(GateType Gtype, std::vector<Wire*>& inputs, Wire* output) {  
+Gate* Circuit::createGate(GateType Gtype) {  
 	Gate* gate = nullptr;
 
 	switch (Gtype) {
 	case GateType::AND:
-		gate = new AndGate(inputs, output);
+		gate = new AndGate(gate->inputs, gate->output);
 		break;
 	case GateType::NOT:
-		gate = new NotGate(inputs[0], output);
+		gate = new NotGate(gate->inputs[0], gate->output);
 		break;
 	case GateType::MacroGate:
 		throw std::invalid_argument("Macro gates require a different constructor.");
 	case GateType::BUFFER:
 
-		gate = new BufferGate(inputs[0], output);
+		gate = new BufferGate(gate->inputs[0], gate->output);
 		break;
 	case GateType::OR:
 
-		gate = new ORGate(inputs, output);
+		gate = new ORGate(gate->inputs, gate->output);
 		break;
 	case GateType::NOR:
 
-		gate = new NorGate(inputs, output);
+		gate = new NorGate(gate->inputs, gate->output);
 		break;
 	case GateType::NAND:
 
-		gate = new NANDGate(inputs, output);
+		gate = new NANDGate(gate->inputs, gate->output);
 		break;
 	case GateType::XOR:
 
-		gate = new XORGate(inputs, output);
+		gate = new XORGate(gate->inputs, gate->output);
 		break;
 	case GateType::XNOR:
 
-		gate = new XNORGate(inputs, output);
+		gate = new XNORGate(gate->inputs, gate->output);
 		break;
 	default:
 		throw std::invalid_argument("Unsupported gate type.");

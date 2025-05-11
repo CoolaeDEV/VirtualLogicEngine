@@ -2,16 +2,20 @@
   "OutputFoldersPerTargetSystem": {
     "Local Machine": [
       "out\\build\\x64-Debug",
-      "out\\install\\x64-Debug"
+      "out\\install\\x64-Debug",
+      "out\\build\\x64-Release",
+      "out\\install\\x64-Release"
     ]
   },
   "ExpandedNodes": [
     "",
+    "\\includeDir\\imgui-node-editor\\examples",
+    "\\includeDir\\imgui-node-editor\\examples\\simple-example",
     "\\src",
+    "\\src\\Renderer",
     "\\src\\simulator",
-    "\\src\\simulator\\examples",
     "\\src\\simulator\\headers"
   ],
-  "SelectedNode": "\\out",
+  "SelectedNode": "\\src\\simulator\\Wire.cpp",
   "PreviewInSolutionExplorer": false
 }

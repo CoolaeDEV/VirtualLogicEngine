@@ -25,9 +25,9 @@ public:
 
 	Circuit(size_t threads) : threadCount(threads), threadPool(threads), chunkSize(128), tickQueue(MAX_DELAY_TICKS){};
 
-	Wire* createWire();
+	Wire* createWire(Gate* from = nullptr, int inputIndex = 0, Gate* to = nullptr);
 
-	Gate* createGate(GateType Gtype, std::vector<Wire*>& inputs, Wire* output);
+	Gate* createGate(GateType Gtype);
 
 	void markWireDirty(Wire* wire);
 	void simulateTick();

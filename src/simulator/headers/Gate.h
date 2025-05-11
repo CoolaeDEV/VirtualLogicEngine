@@ -17,6 +17,9 @@ public:
 	const std::vector<Wire*>& getInputs() const;
 	const Wire* getOutput() const { return output; }
 
+	const std::vector<Wire*> inputs;
+	Wire* output;
+
 	void setLevel(int lvl);
 	int getLevel() const;
 
@@ -26,9 +29,6 @@ public:
 
 
 protected:
-	const std::vector<Wire*> inputs;
-	Wire* output;
-
 	int level = -1;
 
 	GateType type;
@@ -47,7 +47,7 @@ public:
 
 class AndGate : public Gate {
 public:
-	AndGate(std::vector<Wire*>& inputs, Wire* output);
+	AndGate(std::vector<Wire*> inputs, Wire* output);
 
 	void evaluate() override;
 };
@@ -55,7 +55,7 @@ public:
 class ORGate : public Gate {
 public:
 
-	ORGate(std::vector<Wire*>& inputs, Wire* output);
+	ORGate(std::vector<Wire*> inputs, Wire* output);
 
 	void evaluate() override;
 };
@@ -69,28 +69,28 @@ public:
 
 class NorGate : public Gate {
 public:
-	NorGate(std::vector<Wire*>& inputs, Wire* output);
+	NorGate(std::vector<Wire*> inputs, Wire* output);
 
 	void evaluate() override;
 };
 
 class XORGate : public Gate {
 public:
-	XORGate(std::vector<Wire*>& inputs, Wire* output);
+	XORGate(std::vector<Wire*> inputs, Wire* output);
 
 	void evaluate() override;
 };
 
 class NANDGate : public Gate {
 public:
-	NANDGate(std::vector<Wire*>& inputs, Wire* output);
+	NANDGate(std::vector<Wire*> inputs, Wire* output);
 
 	void evaluate() override;
 };
 
 class XNORGate : public Gate {
 public:
-	XNORGate(std::vector<Wire*>& inputs, Wire* output);
+	XNORGate(std::vector<Wire*> inputs, Wire* output);
 
 	void evaluate() override;
 };

@@ -12,7 +12,7 @@ public:
 		LOW = 0
 	};
 
-	Wire(Gate* from = nullptr, Gate* to = nullptr, uint32_t delay = 1); // constructor
+	Wire(Gate* from = nullptr, Gate* to = nullptr, int inputIndex = 0, uint32_t delay = 1); // constructor
 
 	Gate* src;
 	Gate* dst;

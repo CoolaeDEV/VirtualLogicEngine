@@ -1,6 +1,6 @@
 #pragma once
 #include "Gate.h"
-#include "simulator/headers/Circuit.h"
+#include "Circuit.h"
 
 class Circuit;
 

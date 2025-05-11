@@ -31,7 +31,7 @@ uint32_t Gate::getDelayTicks() const {
 // Gate Implementation
 
 // AND
-AndGate::AndGate(std::vector<Wire*>& inputs, Wire* output) : Gate(GateType::AND, inputs, output) {}
+AndGate::AndGate(std::vector<Wire*> inputs, Wire* output) : Gate(GateType::AND, inputs, output) {}
 
 void AndGate::evaluate() {
 	if (inputs.empty()) return;
@@ -40,7 +40,7 @@ void AndGate::evaluate() {
 }
 
 // NAND
-NANDGate::NANDGate(std::vector<Wire*>& inputs, Wire* output) : Gate(GateType::NAND, inputs, output) {}
+NANDGate::NANDGate(std::vector<Wire*> inputs, Wire* output) : Gate(GateType::NAND, inputs, output) {}
 
 void NANDGate::evaluate() {
 	if (inputs.empty()) return;
@@ -70,7 +70,7 @@ void BufferGate::evaluate() {
 }
 
 // OR
-ORGate::ORGate(std::vector<Wire*>& inputs, Wire* output) : Gate(GateType::OR, inputs, output){}
+ORGate::ORGate(std::vector<Wire*> inputs, Wire* output) : Gate(GateType::OR, inputs, output){}
 
 void ORGate::evaluate() {
 	if (inputs.empty()) return;
@@ -80,7 +80,7 @@ void ORGate::evaluate() {
 }
 
 // NOR
-NorGate::NorGate(std::vector<Wire*>& inputs, Wire* output) : Gate(GateType::NOR, inputs, output){}
+NorGate::NorGate(std::vector<Wire*> inputs, Wire* output) : Gate(GateType::NOR, inputs, output){}
 
 void NorGate::evaluate() {
 	if (inputs.empty()) return;
@@ -90,7 +90,7 @@ void NorGate::evaluate() {
 }
 
 // XOR
-XORGate::XORGate(std::vector<Wire*>& inputs, Wire* output) : Gate(GateType::XOR, inputs, output) {}
+XORGate::XORGate(std::vector<Wire*> inputs, Wire* output) : Gate(GateType::XOR, inputs, output) {}
 
 void XORGate::evaluate() {
 	if (inputs.empty()) return;
@@ -101,7 +101,7 @@ void XORGate::evaluate() {
 
 // XNOR
 
-XNORGate::XNORGate(std::vector<Wire*>& inputs, Wire* output) : Gate(GateType::XNOR, inputs, output) {}
+XNORGate::XNORGate(std::vector<Wire*> inputs, Wire* output) : Gate(GateType::XNOR, inputs, output) {}
 
 void XNORGate::evaluate() {
 	if (inputs.empty()) return;

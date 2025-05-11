@@ -18,6 +18,15 @@ msvc_deps_prefix = Note: including file:
 
 
 #############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__VirtualLogicEngine_unscanned_Debug
+  deps = msvc
+  command = ${LAUNCHER}${CODE_CHECK}"C:\PROGRA~1\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\bin\Hostx64\x64\cl.exe"  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  description = Building C object $out
+
+
+#############################################
 # Rule for compiling CXX files.
 
 rule CXX_COMPILER__VirtualLogicEngine_unscanned_Debug
