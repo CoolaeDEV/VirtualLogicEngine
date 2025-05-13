@@ -20,14 +20,17 @@ struct Node {
 	std::vector<Wire*> inputs;
 	Wire* output;
 
+	bool switchCheckbox;
+
 	GateType NodeType;
+
+	Gate* attachedGate;
 };
 
 struct Link {
 	int id;
 	std::vector<int> startPinIds;
 	int endPinId;
-
 	Link(int id, int startPinId, int endPinId) : id(id), endPinId(endPinId) {
 		startPinIds.push_back(startPinId);
 	}
@@ -35,7 +38,7 @@ struct Link {
 
 class SimulationBridge {
 public:
-	SimulationBridge() : attachedCircuit(nullptr) {}
+	SimulationBridge() : attachedCircuit(new Circuit(4)) {}
 	~SimulationBridge();
 
 	int GetNextID() { return nextId++; }

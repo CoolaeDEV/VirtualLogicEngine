@@ -11,6 +11,8 @@ const char* EnumToString(GateType value) {
 	case GateType::XOR: return "XOR";
 	case GateType::XNOR: return "XNOR";
 	case GateType::BUFFER: return "BUFFER";
+    case GateType::Probe: return "Probe";
+    case GateType::Switch: return "Switch";
 	default: return "Unknown";
 	}
 }
@@ -39,8 +41,15 @@ void SimulationBridge::ShowNodeEditor() {
     for (auto& node : nodes) {
         ed::BeginNode(node.id);
         ImGui::Text(node.name.c_str());
+        SwitchGate* ourGate;
+
+        if (!node.attachedGate) {
+            ourGate = dynamic_cast<SwitchGate*>(node.attachedGate);
+        }
+        
 
         switch (node.NodeType) {
+
             case GateType::AND:
                 ed::BeginPin(node.inputPinIDs[0], ed::PinKind::Input);
                 ImGui::Text("-> In A");
@@ -171,6 +180,48 @@ void SimulationBridge::ShowNodeEditor() {
 
                 ed::EndNode();
                 break;
+            case GateType::Switch:
+                ourGate = dynamic_cast<SwitchGate*>(node.attachedGate);
+
+                if (!ourGate) { return; }
+
+                ed::BeginPin(node.inputPinIDs[0], ed::PinKind::Input);
+                if (ImGui::Checkbox("Switch", &node.switchCheckbox)){
+                    if (node.switchCheckbox) {
+                        ourGate->switchedValue = Wire::Value::HIGH;
+                    }
+                    else {
+                        ourGate->switchedValue = Wire::Value::LOW;
+                    }
+                }
+                ed::EndPin();
+
+                ImGui::SameLine();
+                
+                ed::BeginPin(node.outputPinID, ed::PinKind::Output);
+                ImGui::Text("Out ->");
+                ed::EndPin();
+
+                ed::EndNode();
+
+                break;
+            case GateType::Probe:
+                ProbeGate* probeGate = dynamic_cast<ProbeGate*>(node.attachedGate);
+                if (!probeGate) { return; }
+
+                ed::BeginPin(node.inputPinIDs[0], ed::PinKind::Input);
+                ImGui::Text("-> In A");
+                ed::EndPin();
+
+                ImGui::SameLine();
+
+                ed::BeginPin(node.outputPinID, ed::PinKind::Output);
+                bool probedValue = (probeGate->ProbedValue == Wire::Value::HIGH);
+                ImGui::Checkbox("Probe Value", &probedValue);
+                ed::EndPin();
+
+                ed::EndNode();
+           break;
         }
     }
 
@@ -180,21 +231,35 @@ void SimulationBridge::ShowNodeEditor() {
         }
     }
 
-    // NEEDS TO BE FIXED SO THAT I CAN HAVE THE NODES TAKE INPUT FROM THE LINKS AS WIRES
+    //works kinda
     if (ed::BeginCreate()) {
-        ed::PinId startPinID, endPinID;
-        if (ed::QueryNewLink(&startPinID, &endPinID)) {
-            if (ed::QueryNewLink(&startPinID, &endPinID)) {  
-               if (startPinID && endPinID && startPinID != endPinID) {  
-                   if (ed::AcceptNewItem()) {  
-                       auto startPinIndex = std::find_if(links.begin(), links.end(),  
-                           [startPinID](const Link& l) { return l.id == startPinID.Get(); });  
-                       if (startPinIndex != links.end()) {
-                           links.push_back({ GetNextID(), static_cast<int>(startPinID.Get()), static_cast<int>(endPinID.Get()) });
-                           attachedCircuit->createWire(nullptr, startPinID.Get(), nullptr);
-                       }
-                   }  
-               }
+        ed::PinId startPinId, endPinId;
+        if (ed::QueryNewLink(&startPinId, &endPinId)) {
+            if (startPinId && endPinId && startPinId != endPinId) {
+                if (ed::AcceptNewItem()) {
+                    links.push_back({ GetNextID(), static_cast<int>(startPinId.Get()), static_cast<int>(endPinId.Get())});
+                    Gate* from;
+                    Gate* to;
+                    int inputIndex;
+
+                    
+                    for (Node node : nodes) {
+                        // Get Origin Node
+                        if (static_cast<int>(startPinId.Get()) == node.outputPinID) {
+                            from = node.attachedGate;
+                        }
+                        // Get Ended Node
+                        for (int i = 0; i < node.inputPinIDs.size(); i++) {
+                            if (static_cast<int>(endPinId.Get()) == node.inputPinIDs[i]) {
+                                inputIndex = i;
+                                to = node.attachedGate;
+                            }
+                        }
+                    }
+                    if (from && to != nullptr) {
+                        attachedCircuit->createWire(from, inputIndex, to);
+                    }
+                }
             }
         }
     }
@@ -225,7 +290,8 @@ void SimulationBridge::ShowNodeEditor() {
                             EnumToString(GateType::NOT), EnumToString(GateType::OR),
                             EnumToString(GateType::XOR), EnumToString(GateType::XNOR),
                             EnumToString(GateType::NAND), EnumToString(GateType::BUFFER),
-                            EnumToString(GateType::NOR) };
+                            EnumToString(GateType::NOR), EnumToString(GateType::Switch),
+                            EnumToString(GateType::Probe)};
 
     int currentItem = static_cast<int>(NodeType);
     std::string logicGateName = EnumToString(NodeType);
@@ -244,47 +310,55 @@ void SimulationBridge::ShowNodeEditor() {
                 for (int i = 0; i < 2; i++) {
                     node.inputPinIDs.push_back(GetNextID());
                 }
-                attachedCircuit->createGate(NodeType);
+                node.attachedGate = attachedCircuit->createGate(NodeType);
                 break;
             case GateType::NOT:
                 node.inputPinIDs.push_back(GetNextID());
-                attachedCircuit->createGate(NodeType);
+                node.attachedGate = attachedCircuit->createGate(NodeType);
                 break;
             case GateType::MacroGate:
                 break;
             case GateType::BUFFER:
                 node.inputPinIDs.push_back(GetNextID());
-                attachedCircuit->createGate(NodeType);
+                node.attachedGate = attachedCircuit->createGate(NodeType);
                 break;
             case GateType::OR:
                 for (int i = 0; i < 2; i++) {
                     node.inputPinIDs.push_back(GetNextID());
                 }
-                attachedCircuit->createGate(NodeType);
+                node.attachedGate = attachedCircuit->createGate(NodeType);
                 break;
             case GateType::NOR:
                 for (int i = 0; i < 2; i++) {
                     node.inputPinIDs.push_back(GetNextID());
                 }
-                attachedCircuit->createGate(NodeType);
+                node.attachedGate = attachedCircuit->createGate(NodeType);
                 break;
             case GateType::NAND:
                 for (int i = 0; i < 2; i++) {
                     node.inputPinIDs.push_back(GetNextID());
                 }
-                attachedCircuit->createGate(NodeType);
+                node.attachedGate = attachedCircuit->createGate(NodeType);
                 break;
             case GateType::XOR:
                 for (int i = 0; i < 2; i++) {
                     node.inputPinIDs.push_back(GetNextID());
                 }
-                attachedCircuit->createGate(NodeType);
+                node.attachedGate = attachedCircuit->createGate(NodeType);
                 break;
             case GateType::XNOR:
                 for (int i = 0; i < 2; i++) {
                     node.inputPinIDs.push_back(GetNextID());
                 }
-                attachedCircuit->createGate(NodeType);
+                node.attachedGate = attachedCircuit->createGate(NodeType);
+                break;
+            case GateType::Switch:
+                node.inputPinIDs.push_back(GetNextID());
+                node.attachedGate = attachedCircuit->createGate(NodeType);
+                break;
+            case GateType::Probe:
+                node.inputPinIDs.push_back(GetNextID());
+                node.attachedGate = attachedCircuit->createGate(NodeType);
                 break;
         }
         node.outputPinID = GetNextID();
@@ -292,7 +366,11 @@ void SimulationBridge::ShowNodeEditor() {
     }
 
     ImGui::End();
-
+    ImGui::Begin("Breakpointer");
+    if (ImGui::Button("Begin Breakpoint")) {
+        std::cout << "Breakpoint done";
+    }
+    ImGui::End();
     ImGui::Begin("Logic Simulation Window");
     std::string simStatus = "Simulation Status: Stopped";
     ImGui::Text(simStatus.c_str());
@@ -304,7 +382,9 @@ void SimulationBridge::ShowNodeEditor() {
     if (ImGui::Button("Start Simulation")) {
         attachedCircuit->finalizeLevels();
 
-        runner.start();
+        for (int i = 0; i < 10; i++) {
+            runner.stepOnce();
+        }
     }
 
     if (ImGui::Button("Stop Simulation")) {

@@ -14,8 +14,6 @@ public:
 
 	Wire(Gate* from = nullptr, Gate* to = nullptr, int inputIndex = 0, uint32_t delay = 1); // constructor
 
-	Gate* src;
-	Gate* dst;
 	uint32_t delayTicks;
 
 	void setValue(Value newValue); // sets the current value of the wire to the ~newValue~

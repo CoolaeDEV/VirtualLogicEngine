@@ -42,10 +42,10 @@ public:
 
 	void finalizeLevels();
 
-private:
 	std::vector<Wire*> wires;
 	std::vector<Gate*> gates;
 
+private:
 	std::vector<Wire*> inputWires;
 	std::vector<Wire*> outputWires;
 

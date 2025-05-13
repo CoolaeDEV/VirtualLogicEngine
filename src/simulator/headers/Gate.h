@@ -3,7 +3,7 @@
 #include "Wire.h"
 
 enum GateType {
-	BUFFER, AND, NOT, NOR, XOR, OR, NAND, XNOR, MacroGate
+	BUFFER, AND, NOT, NOR, XOR, OR, NAND, XNOR, MacroGate, Switch, Probe
 };
 class Gate {
 public:
@@ -93,4 +93,24 @@ public:
 	XNORGate(std::vector<Wire*> inputs, Wire* output);
 
 	void evaluate() override;
+};
+
+// IO Declaration
+
+class SwitchGate : public Gate {
+public:
+	SwitchGate(Wire* output);
+
+	Wire::Value switchedValue;
+
+	void evaluate() override;
+};
+
+class ProbeGate : public Gate {
+public:
+	ProbeGate(Wire* input);
+
+	void evaluate() override;
+
+	Wire::Value ProbedValue;
 };

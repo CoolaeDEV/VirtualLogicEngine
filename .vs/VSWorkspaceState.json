@@ -9,13 +9,16 @@
   },
   "ExpandedNodes": [
     "",
-    "\\includeDir\\imgui-node-editor\\examples",
-    "\\includeDir\\imgui-node-editor\\examples\\simple-example",
+    "\\IncludeDir",
+    "\\IncludeDir\\imgui",
+    "\\IncludeDir\\imgui\\examples",
+    "\\IncludeDir\\imgui\\examples\\example_allegro5",
     "\\src",
     "\\src\\Renderer",
+    "\\src\\Renderer\\headers",
     "\\src\\simulator",
     "\\src\\simulator\\headers"
   ],
-  "SelectedNode": "\\src\\simulator\\Wire.cpp",
+  "SelectedNode": "\\src\\Renderer\\headers\\SimulationBridge.h",
   "PreviewInSolutionExplorer": false
 }

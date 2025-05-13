@@ -3,44 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\Circuit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\simulator\\Circuit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\Renderer\\SimulationBridge.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Renderer\\SimulationBridge.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\headers\\Wire.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\simulator\\headers\\Wire.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\Circuit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\simulator\\Circuit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\headers\\Circuit.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\simulator\\headers\\Circuit.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\Renderer\\SimulationBridge.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Renderer\\SimulationBridge.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\Wire.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\simulator\\Wire.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\Gate.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\simulator\\Gate.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\Renderer\\headers\\SimulationBridge.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Renderer\\headers\\SimulationBridge.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\headers\\Gate.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\simulator\\headers\\Gate.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\Renderer\\headers\\SimulationBridge.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Renderer\\headers\\SimulationBridge.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\TickRunner.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\simulator\\TickRunner.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\headers\\Wire.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\simulator\\headers\\Wire.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\Wire.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\simulator\\Wire.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -53,59 +53,59 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 352,
-          "SelectedChildIndex": 5,
+          "DockedHeight": 374,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Gate.h",
-              "DocumentMoniker": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\headers\\Gate.h",
-              "RelativeDocumentMoniker": "src\\simulator\\headers\\Gate.h",
-              "ToolTip": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\headers\\Gate.h",
-              "RelativeToolTip": "src\\simulator\\headers\\Gate.h",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAswF8AAAACAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "SimulationBridge.h",
+              "DocumentMoniker": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\Renderer\\headers\\SimulationBridge.h",
+              "RelativeDocumentMoniker": "src\\Renderer\\headers\\SimulationBridge.h",
+              "ToolTip": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\Renderer\\headers\\SimulationBridge.h",
+              "RelativeToolTip": "src\\Renderer\\headers\\SimulationBridge.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-11T06:06:23.647Z",
+              "WhenOpened": "2025-05-13T04:53:50.052Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "SimulationBridge.cpp",
               "DocumentMoniker": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\Renderer\\SimulationBridge.cpp",
               "RelativeDocumentMoniker": "src\\Renderer\\SimulationBridge.cpp",
               "ToolTip": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\Renderer\\SimulationBridge.cpp",
               "RelativeToolTip": "src\\Renderer\\SimulationBridge.cpp",
-              "ViewState": "AgIAAKoAAAAAAAAAAAAIwLYAAABYAAAAAAAAAA==",
+              "ViewState": "AgIAAGkBAAAAAAAAAAAAwG4BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-11T04:08:41.537Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SimulationBridge.h",
-              "DocumentMoniker": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\Renderer\\headers\\SimulationBridge.h",
-              "RelativeDocumentMoniker": "src\\Renderer\\headers\\SimulationBridge.h",
-              "ToolTip": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\Renderer\\headers\\SimulationBridge.h",
-              "RelativeToolTip": "src\\Renderer\\headers\\SimulationBridge.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-11T04:08:40.698Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Gate.cpp",
               "DocumentMoniker": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\Gate.cpp",
               "RelativeDocumentMoniker": "src\\simulator\\Gate.cpp",
               "ToolTip": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\Gate.cpp",
               "RelativeToolTip": "src\\simulator\\Gate.cpp",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAG4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAwwHwAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-01T04:42:17.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Gate.h",
+              "DocumentMoniker": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\headers\\Gate.h",
+              "RelativeDocumentMoniker": "src\\simulator\\headers\\Gate.h",
+              "ToolTip": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\headers\\Gate.h",
+              "RelativeToolTip": "src\\simulator\\headers\\Gate.h",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAMwHEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-11T06:06:23.647Z",
               "EditorCaption": ""
             },
             {
@@ -116,72 +116,72 @@
               "RelativeDocumentMoniker": "src\\simulator\\headers\\Circuit.h",
               "ToolTip": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\headers\\Circuit.h",
               "RelativeToolTip": "src\\simulator\\headers\\Circuit.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAWwBsAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAAC8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-05-01T04:08:19.992Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Circuit.cpp",
               "DocumentMoniker": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\Circuit.cpp",
               "RelativeDocumentMoniker": "src\\simulator\\Circuit.cpp",
               "ToolTip": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\Circuit.cpp",
               "RelativeToolTip": "src\\simulator\\Circuit.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAWwDMAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-01T04:08:18.386Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\main.cpp",
               "RelativeDocumentMoniker": "src\\main.cpp",
               "ToolTip": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\main.cpp",
               "RelativeToolTip": "src\\main.cpp",
-              "ViewState": "AgIAABMAAAAAAAAAAAAmwE4AAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAHQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-01T04:24:59.559Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "Wire.h",
               "DocumentMoniker": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\headers\\Wire.h",
               "RelativeDocumentMoniker": "src\\simulator\\headers\\Wire.h",
               "ToolTip": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\headers\\Wire.h",
               "RelativeToolTip": "src\\simulator\\headers\\Wire.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-05-11T05:58:03.893Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Wire.cpp",
               "DocumentMoniker": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\Wire.cpp",
               "RelativeDocumentMoniker": "src\\simulator\\Wire.cpp",
               "ToolTip": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\Wire.cpp",
               "RelativeToolTip": "src\\simulator\\Wire.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-05T01:35:28.87Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 6,
               "Title": "TickRunner.cpp",
               "DocumentMoniker": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\TickRunner.cpp",
               "RelativeDocumentMoniker": "src\\simulator\\TickRunner.cpp",
               "ToolTip": "C:\\Users\\marce\\source\\repos\\CoolaeDEV\\VirtualLogicEngine\\src\\simulator\\TickRunner.cpp",
               "RelativeToolTip": "src\\simulator\\TickRunner.cpp",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACoAAABHAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwAwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-04T06:08:13.463Z",
               "EditorCaption": ""
@@ -196,13 +196,12 @@
               "RelativeToolTip": "CMakeLists.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-04T23:35:11.675Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-04T23:35:11.675Z"
             }
           ]
         },
         {
-          "DockedHeight": 168,
+          "DockedHeight": 146,
           "SelectedChildIndex": -1,
           "Children": [
             {

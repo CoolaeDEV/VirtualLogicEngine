@@ -109,3 +109,18 @@ void XNORGate::evaluate() {
 	output->setValue((inputs[0]->getValue() ^ inputs[1]->getValue()) == Wire::Value::LOW ? Wire::Value::HIGH : Wire::Value::LOW);
 	output->markDirty();
 }
+
+// IO Implementation
+
+SwitchGate::SwitchGate(Wire* output) : Gate(GateType::Switch, std::vector<Wire*>{}, output){}
+
+void SwitchGate::evaluate() {
+	output->setValue(switchedValue);
+	output->markDirty();
+}
+
+ProbeGate::ProbeGate(Wire* input) : Gate(GateType::Probe, std::vector<Wire*>{input}, nullptr), ProbedValue(Wire::Value::LOW) {}
+
+void ProbeGate::evaluate() {
+	inputs[0]->setValue(ProbedValue);
+}
