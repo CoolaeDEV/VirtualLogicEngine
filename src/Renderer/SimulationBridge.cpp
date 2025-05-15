@@ -239,7 +239,7 @@ void SimulationBridge::ShowNodeEditor() {
                 if (ed::AcceptNewItem()) {
                     links.push_back({ GetNextID(), static_cast<int>(startPinId.Get()), static_cast<int>(endPinId.Get())});
                     Gate* from;
-                    Gate* to;
+                    std::vector<Gate*> to;
                     int inputIndex;
 
                     
@@ -252,12 +252,16 @@ void SimulationBridge::ShowNodeEditor() {
                         for (int i = 0; i < node.inputPinIDs.size(); i++) {
                             if (static_cast<int>(endPinId.Get()) == node.inputPinIDs[i]) {
                                 inputIndex = i;
-                                to = node.attachedGate;
+                                to.push_back(node.attachedGate);
                             }
                         }
                     }
-                    if (from && to != nullptr) {
-                        attachedCircuit->createWire(from, inputIndex, to);
+                    if (from != nullptr && to.empty()) {
+                        std::vector<Wire*> wires;
+                        for (Gate* gate : to) {
+                            wires.push_back(dynamic_cast<Wire*>(gate));
+                        }
+                        attachedCircuit->createWire(from, inputIndex, wires);
                     }
                 }
             }

@@ -1,0 +1,10 @@
+^C:\USERS\JOHNSONMK0713\DOCUMENTS\GITHUB\VIRTUALLOGICENGINE\BUILD\CMAKEFILES\F4CEFDE6DA43AF3EF39FEE966FE4914B\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/johnsonmk0713/Documents/GitHub/VirtualLogicEngine -BC:/Users/johnsonmk0713/Documents/GitHub/VirtualLogicEngine/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/johnsonmk0713/Documents/GitHub/VirtualLogicEngine/build/VirtualLogicEngine.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

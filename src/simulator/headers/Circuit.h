@@ -1,4 +1,5 @@
 #pragma once  
+
 #include <vector>  
 #include <thread>  
 #include <mutex>  
@@ -25,7 +26,7 @@ public:
 
 	Circuit(size_t threads) : threadCount(threads), threadPool(threads), chunkSize(128), tickQueue(MAX_DELAY_TICKS){};
 
-	Wire* createWire(Gate* from = nullptr, int inputIndex = 0, Gate* to = nullptr);
+	Wire* createWire(Gate* from = nullptr, std::vector<int> inputIndex = std::vector<int>(), std::vector<Gate*> to = std::vector<Gate*>());
 
 	Gate* createGate(GateType Gtype);
 

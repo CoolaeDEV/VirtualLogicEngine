@@ -12,7 +12,13 @@ public:
 		LOW = 0
 	};
 
-	Wire(Gate* from = nullptr, Gate* to = nullptr, int inputIndex = 0, uint32_t delay = 1); // constructor
+    // Add a new constructor matching the arguments
+    Wire(Gate* From = nullptr, std::vector<int> InputIndex = std::vector<int>(), std::vector<Gate*> To = std::vector<Gate*>()) {
+        // Initialize the Wire object with the provided arguments
+        From = from;
+        InputIndex = inputIndex;
+        To = to;
+    }
 
 	uint32_t delayTicks;
 
@@ -27,6 +33,10 @@ public:
 	void clearDirty();
 
 private:
+	Gate* from;
+	std::vector<int> inputIndex;
+	std::vector<Gate*> to;
+
 	Value value;
 	bool dirty;
 	std::vector<Gate*> attachedGates;

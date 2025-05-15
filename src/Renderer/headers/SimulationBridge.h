@@ -1,13 +1,12 @@
 #pragma once
-
 #include <string>
 #include <vector>
 
 #include "imgui/imgui.h"
 #include "imgui-node-editor/imgui_node_editor.h"
-#include "C:\Users\marce\source\repos\CoolaeDEV\VirtualLogicEngine\src\simulator\headers\Gate.h"
-#include "C:\Users\marce\source\repos\CoolaeDEV\VirtualLogicEngine\src\simulator\headers\Circuit.h"
-#include "C:\Users\marce\source\repos\CoolaeDEV\VirtualLogicEngine\src\simulator\headers\TickRunner.h"
+#include "C:\Users\johnsonmk0713\Documents\GitHub\VirtualLogicEngine\src\simulator\headers\Circuit.h"
+#include "C:\Users\johnsonmk0713\Documents\GitHub\VirtualLogicEngine\src\simulator\headers\Gate.h"
+#include "C:\Users\johnsonmk0713\Documents\GitHub\VirtualLogicEngine\src\simulator\headers\TickRunner.h"
 
 namespace ed = ax::NodeEditor;
 

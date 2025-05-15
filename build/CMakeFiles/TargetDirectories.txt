@@ -1,0 +1,3 @@
+C:/Users/johnsonmk0713/Documents/GitHub/VirtualLogicEngine/build/CMakeFiles/VirtualLogicEngine.dir
+C:/Users/johnsonmk0713/Documents/GitHub/VirtualLogicEngine/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/johnsonmk0713/Documents/GitHub/VirtualLogicEngine/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
 project(VirtualLogicEngine)
 
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
 set(CMAKE_CXX_STANDARD 17)
 
 set(LIBRARY_DIR "${CMAKE_SOURCE_DIR}/Libs")
@@ -26,12 +28,14 @@ set(IMGUI_SOURCES
     ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
 )
 
-include_directories(src, IncludeDir)
+include_directories(src)
+include_directories(IncludeDir)
 
-file(GLOB SOURCES src/*.cpp)
+file(GLOB SOURCES src/*.cpp src/*.c)
 file(GLOB LIBRARIES "${LIBRARY_DIR}/*.lib" "${LIBRARY_DIR}/*.a")
 
 add_executable(VirtualLogicEngine
+			"src/glad.c"
 			src/main.cpp
 			src/simulator/Circuit.cpp
 			src/simulator/Gate.cpp
@@ -42,9 +46,8 @@ add_executable(VirtualLogicEngine
 			"src/simulator/TickRunner.cpp" 
 			"src/simulator/headers/TickRunner.h"  
 			"src/simulator/examples/adder_test.cpp"
-			"src/glad.c"
 			${IMGUI_SOURCES}
-			${IMGUI_NODEEDITORSOURCES} "src/Renderer/SimulationBridge.cpp" "src/Renderer/headers/SimulationBridge.h")
+			${IMGUI_NODEEDITORSOURCES} "src/Renderer/SimulationBridge.cpp" "src/Renderer/headers/SimulationBridge.h" "src/Renderer/WindowInstance.cpp" "src/Renderer/headers/WindowInstance.h")
 
 target_include_directories(VirtualLogicEngine PRIVATE IncludeDir)
 target_link_libraries(VirtualLogicEngine PRIVATE ${LIBRARIES})

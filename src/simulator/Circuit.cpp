@@ -1,8 +1,8 @@
 #include "headers/Circuit.h"
 #include <iostream>
 
-Wire* Circuit::createWire(Gate* from, int inputIndex, Gate* to) {
-	Wire* wire = new Wire(from, to, inputIndex);
+Wire* Circuit::createWire(Gate* from, std::vector<int> inputIndex, std::vector<Gate*> to) {
+	Wire* wire = new Wire(from, inputIndex, to);
 
 	wires.push_back(wire);
 	return wire;
